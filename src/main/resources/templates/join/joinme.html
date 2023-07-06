@@ -41,16 +41,16 @@
             <form name="joinfrm" id="joinfrm">
                 <div class="row col-11 offset-1">
                         <div class="row mt-5 mb-3">
-                            <label for="name2" class="col-2 col-form-label text-end text-danger bg-light" readonly>이름</label>
+                            <label for="name" class="col-2 col-form-label text-end text-danger bg-light">이름</label>
                             <div class="col-3">
-                                <input type="text" name="name2" id="name2" class="form-control border-danger"></div>
+                                <input type="text" name="name" id="name" class="form-control border-danger"readonly th:value="${session.checkme.name}"></div>
                         </div><!-- name -->
                 <div class="row mb-3">
                     <label for="jumin1" class="col-2 col-form-label text-danger text-end">주민번호</label>
                     <div class="col-2">
-                        <input type="text" name="jumin1" id="jumin1" class="form-control border-danger bg-light" readonly></div> <!-- jumin1 -->
+                        <input type="text" name="jumin1" id="jumin1" class="form-control border-danger bg-light" readonly th:value="${session.checkme.jumin1}"></div> <!-- jumin1 -->
                     <div class="col-2">
-                        <input type="password" name="jumin2" id="jumin2" class="form-control border-danger bg-light" readonly></div> <!-- jumin2 -->
+                        <input type="password" name="jumin2" id="jumin2" class="form-control border-danger bg-light" readonly th:value="${session.checkme.jumin2}"></div> <!-- jumin2 -->
                 </div><!-- jumin -->
 
                 <div class="row mb-3 align-items-center">
