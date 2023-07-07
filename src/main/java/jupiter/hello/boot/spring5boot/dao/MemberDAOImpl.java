@@ -31,6 +31,7 @@ public class MemberDAOImpl implements MemberDAO{
 
     @Override
     public List<Member> selectMember() {
-        return null;
+        List<Member> result = memberMapper.selectMember();
+        return result;
     }
 }
