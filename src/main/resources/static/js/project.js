@@ -114,3 +114,9 @@ email3?.addEventListener('click',()=>{
         frm.email2.value = email3.value;
     }
 });
+// 우편번호 검색 엔터키 입력차단
+dong?.addEventListener('keydown',(e)=>{
+    if(e.keyCode===13)
+        e.preventDefault(); // 엔터키 입력되면 이벤트 전파 방지
+
+});
