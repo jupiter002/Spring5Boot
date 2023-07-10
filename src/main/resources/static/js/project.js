@@ -166,22 +166,22 @@ let joinbtn = document.querySelector('#joinbtn');
 joinbtn?.addEventListener('click',()=>{
    let frm = document.forms.joinfrm;
    if(frm.userid.value==='') alert('아이디를 입력하세요.');
-   else if(frm1.passwd.value==='') alert('비밀번호를 입력하세요.');
-   else if(frm1.repasswd.value==='') alert('비밀번호확인을 입력하세요.');
-   else if(frm1.zip1.value==='' || frm.zip2.value === '') alert('우편번호를 입력하세요.');
-   else if(frm1.addr1.value==='' || frm.addr2.value === '') alert('주소를 입력하세요.');
-   else if(frm1.email1.value==='' || frm.email2.value === '') alert('이메일을 입력하세요.');
-   else if(frm1.phone2.value==='' || frm.phone3.value === '') alert('전화번호를 입력하세요.');
+   else if(frm.passwd.value==='') alert('비밀번호를 입력하세요.');
+   else if(frm.repasswd.value==='') alert('비밀번호확인을 입력하세요.');
+   else if(frm.zip1.value==='' || frm.zip2.value === '') alert('우편번호를 입력하세요.');
+   else if(frm.addr1.value==='' || frm.addr2.value === '') alert('주소를 입력하세요.');
+   else if(frm.email1.value==='' || frm.email2.value === '') alert('이메일을 입력하세요.');
+   else if(frm.phone2.value==='' || frm.phone3.value === '') alert('전화번호를 입력하세요.');
    else if(grecaptcha.getResponse()==='') alert('자동가입방지를 체크하세요.');
    else if(checkuid.value==='no') alert('전화번호를 입력하세요.');
    else{
-       frm1.jumin.value = frm1.jumin1.value + '-' + frm1.jumin2.value;
-       frm1.jumin.value = frm1.zip1.value + '-' + frm1.zip2.value;
-       frm1.jumin.value = frm1.email1.value + '@' + frm1.email2.value;
-       frm1.jumin.value = frm1.phone1.value + '-' + frm1.phone2.value
+       frm.jumin.value = frm1.jumin1.value + '-' + frm1.jumin2.value;
+       frm.jumin.value = frm1.zip1.value + '-' + frm1.zip2.value;
+       frm.jumin.value = frm1.email1.value + '@' + frm1.email2.value;
+       frm.jumin.value = frm1.phone1.value + '-' + frm1.phone2.value
            '-' + frm1.phone3.value;
-       frm1.method = 'post';
-       frm1.submit;
+       frm.method = 'post';
+       frm.submit;
 
    }
 
