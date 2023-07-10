@@ -14,7 +14,6 @@ import java.util.List;
 public class MemberDAOImpl implements MemberDAO{
     // mybatis를 사용하기 위해 필요한 객체 DI
     // 단, 생성자 주입 방식 사용
-    @Autowired
     final MemberMapper memberMapper;
 
     @Override
@@ -36,5 +35,10 @@ public class MemberDAOImpl implements MemberDAO{
     public List<Zipcode> selectzip(String dong) {
 
         return memberMapper.findZipcode(dong);
+    }
+
+    @Override
+    public int selectOneUserid(String uid) {
+        return memberMapper.selectOneUserid(uid);
     }
 }
