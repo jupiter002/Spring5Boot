@@ -92,6 +92,18 @@ public class JoinController {
     public void checkuid(@PathVariable String uid, HttpServletResponse res) throws IOException {
         res.setContentType("application/json; charset=utf-8");
         res.getWriter().print( msrv.checkuid(uid) );
+    }
+    //로그인 처리
+    @PostMapping("/login")
+    public String login(Member m, HttpSession sess){
+        logger.info("join/login 호출");
+        m = msrv.readOneMember(m);
+        String returnPage = "redirect:/loginfail";
+        if(m!=null){
+            sess.setAttribute("member", m);
+            return "redirect:/";
+        }
+        return returnPage;
 
     }
 }
