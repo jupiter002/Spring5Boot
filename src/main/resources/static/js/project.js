@@ -202,5 +202,27 @@ go2idx?.addEventListener('click',() => {
     location.href = '/';
 
 });
+// login
+let loginbtn = document.querySelector('#loginbtn');
+let lguid = document.querySelector('#userid');
+let lgpwd = document.querySelector('#passwd');
+let lgnfrm = document.querySelector("#lgnfrm")
+const chkMember = (loginuid,loginpwd) => {
+    return undefined;
+};
+loginbtn?.addEventListener('click',()=>{
 
+    if(lguid.value===''){
+        alert('아이디를 입력하세요');
+    }else if(lgpwd.value===''){
+        alert('비밀번호를 입력하세요');
+    }else{
+        lgnfrm.method = 'post';
+        lgnfrm.action = '/join/login';
+        lgnfrm.submit();
+    }
+
+
+
+});
 
