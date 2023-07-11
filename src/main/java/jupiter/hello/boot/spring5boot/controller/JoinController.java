@@ -104,6 +104,10 @@ public class JoinController {
             return "redirect:/";
         }
         return returnPage;
-
+    }
+    @GetMapping("/logout")
+    public String logout(HttpSession sess){
+        sess.invalidate();
+        return "redirect:/";
     }
 }
