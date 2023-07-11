@@ -8,16 +8,16 @@ import lombok.*;
 @AllArgsConstructor
 @ToString
 public class Member {
-    public String mno;
-    public String userid;
-    public String passwd;
-    public String name;
-    public String jumin;
-    public String email;
-    public String zipcode;
-    public String addr1;
-    public String addr2;
-    public String phone;
-    public String regdate;
+    private String mno;
+    private String userid;
+    private String passwd;
+    private String name;
+    private String jumin;
+    private String email;
+    private String zipcode;
+    private String addr1;
+    private String addr2;
+    private String phone;
+    private String regdate;
 
 }
