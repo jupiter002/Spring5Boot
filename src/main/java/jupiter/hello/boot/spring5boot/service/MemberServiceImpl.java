@@ -63,4 +63,10 @@ public class MemberServiceImpl implements MemberService{
         return mdao.selectOneUserid(uid);
     }
 
+    @Override
+    public Member readOneMember(Member m) {
+        return mdao.selectOneMember(m);
+    }
+
+
 }
