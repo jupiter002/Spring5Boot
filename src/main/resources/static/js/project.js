@@ -172,16 +172,16 @@ joinbtn?.addEventListener('click',()=>{
    else if(frm.addr1.value==='' || frm.addr2.value === '') alert('주소를 입력하세요.');
    else if(frm.email1.value==='' || frm.email2.value === '') alert('이메일을 입력하세요.');
    else if(frm.phone2.value==='' || frm.phone3.value === '') alert('전화번호를 입력하세요.');
-   else if(grecaptcha.getResponse()==='') alert('자동가입방지를 체크하세요.');
+   else if(grecaptcha.getResponse() === '') alert('자동가입방지를 클릭하세요!!');
    else if(checkuid.value==='no') alert('전화번호를 입력하세요.');
    else{
-       frm.jumin.value = frm1.jumin1.value + '-' + frm1.jumin2.value;
-       frm.jumin.value = frm1.zip1.value + '-' + frm1.zip2.value;
-       frm.jumin.value = frm1.email1.value + '@' + frm1.email2.value;
-       frm.jumin.value = frm1.phone1.value + '-' + frm1.phone2.value
-           '-' + frm1.phone3.value;
+       frm.jumin.value = frm.jumin1.value + '-' + frm.jumin2.value;
+       frm.zipcode.value = frm.zip1.value + '-' + frm.zip2.value;
+       frm.email.value = frm.email1.value + '@' + frm.email2.value;
+       frm.phone.value = frm.phone1.value + '-' + frm.phone2.value+
+           '-' + frm.phone3.value;
        frm.method = 'post';
-       frm.submit;
+       frm.submit();
 
    }
 
