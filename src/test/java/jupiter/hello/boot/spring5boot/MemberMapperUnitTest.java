@@ -23,7 +23,7 @@ public class MemberMapperUnitTest {
     @Test
     @DisplayName("MemberMapper insert Test")
     void insertMember(){
-        Member m = new Member(null,"","","",""
+        Member m = new Member(null,"","","","",""
                 ,"","","","",null);
 
         int result = memberMapper.insertMember(m);
@@ -37,5 +37,16 @@ public class MemberMapperUnitTest {
 
         System.out.println(results);
         assertNotNull(results);
+    }
+    @Test
+    @DisplayName("MemberMapper selectOneMember Test")
+    void selectOneMember(){
+        Member m = new Member();
+        m.setUserid("abc123");
+        m.setPasswd("987xyz");
+        Member result = memberMapper.selectOneMember(m);
+
+        System.out.println(result);
+        assertNotNull(result);
     }
 }
