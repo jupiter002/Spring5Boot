@@ -58,6 +58,7 @@ let sendzip = document.querySelector('#sendzip');
 let modal = null;   // 우편번호 모달
 
 let email3 = document.querySelector('#email3');
+//우편번호 검색 모달창 띄우기
 zipbtn?.addEventListener('click',()=>{
     while(addrlist.lastChild){
         addrlist.removeChild(addrlist.lastChild);
@@ -69,15 +70,18 @@ zipbtn?.addEventListener('click',()=>{
     }catch (e){}
     modal.show();     // 모달창 띄우기
 });
-
+//검색한 우편번호 결과 출력
 const showzipaddr = (jsons) => {
     jsons = JSON.parse(jsons); // 문자열을 json객체로 변환
     let addr = '';
     jsons.forEach(function (data, idx){
-      addr += `<option>${data['zipcode']} ${data['sido']} ${data['gugun']} ${data['dong']} ${data['bunji']}</option>`;
+        // 주소 번지가 null일 경우 공백처리
+        let bunji = data['bunji'] !== null ? data['bunji'] : "";
+      addr += `<option>${data['zipcode']} ${data['sido']} ${data['gugun']} ${data['dong']} ${bunji}</option>`;
     });
     addrlist.innerHTML = addr;
 };
+//우편번호 검색
 fzipbtn?.addEventListener('click',()=>{
     if(dong.value === '') {
         alert('동이름을 입력하세요!!');
@@ -87,6 +91,7 @@ fzipbtn?.addEventListener('click',()=>{
     fetch(url).then(response =>response.text())
         .then(text => showzipaddr(text));
 });
+//주소 선택하고 닫기
 sendzip?.addEventListener('click',()=>{
     let frm = document.forms.joinfrm;
     let addr = addrlist.value; // 선택한 주소 항목
@@ -104,6 +109,7 @@ sendzip?.addEventListener('click',()=>{
         alert('주소를 선택하세요');
     }
 });
+//전자우편 주소 선택
 email3?.addEventListener('click',()=>{
     let frm = document.forms.joinfrm;
     if(email3.value==='직접입력하기'){
@@ -122,8 +128,8 @@ dong?.addEventListener('keydown',(e)=>{
 });
 // 비밀번호 확인
 let frm1 = document.forms.joinfrm;
-let pwd = frm1.passwd;
-let repwd = frm1.repasswd;
+let pwd = document.querySelector('#pwd');
+let repwd = document.querySelector('#repasswd');
 let pwdmsg = document.querySelector('#pwdmsg');
 repwd?.addEventListener('blur',()=>{
     let pmsg = '비밀번호가 서로 일치하지 않습니다.';
@@ -135,8 +141,8 @@ repwd?.addEventListener('blur',()=>{
     pwdmsg.innerText = pmsg;
 });
 // 아이디 중복 검사
-let userid = document.joinfrm.userid;
-let checkuid = document.joinfrm.checkuid;
+let userid = document.querySelector('#uid');
+let checkuid = document.querySelector('#checkuid');
 let uidmsg = document.querySelector('#uidmsg');
 const styleCheckuid = (chkuid) => {
     let umsg = '사용 불가능한 아이디입니다.';
@@ -149,6 +155,7 @@ const styleCheckuid = (chkuid) => {
     }
     uidmsg.innerText = umsg;
 };
+//아이디 중복 검사
 userid?.addEventListener('blur',() =>{
     if(userid.value===''){
         uidmsg.innerText = '6~16 자의 영문 대소문자, 숫자 및 특수문자만 사용할 수 있습니다.';
@@ -185,6 +192,14 @@ joinbtn?.addEventListener('click',()=>{
 
    }
 
+
+
+});
+
+// joinok
+let go2idx = document.querySelector('#go2idx');
+go2idx?.addEventListener('click',() => {
+    location.href = '/';
 
 });
 
