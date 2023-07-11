@@ -207,9 +207,6 @@ let loginbtn = document.querySelector('#loginbtn');
 let lguid = document.querySelector('#userid');
 let lgpwd = document.querySelector('#passwd');
 let lgnfrm = document.querySelector("#lgnfrm")
-const chkMember = (loginuid,loginpwd) => {
-    return undefined;
-};
 loginbtn?.addEventListener('click',()=>{
 
     if(lguid.value===''){
@@ -221,8 +218,9 @@ loginbtn?.addEventListener('click',()=>{
         lgnfrm.action = '/join/login';
         lgnfrm.submit();
     }
-
-
-
 });
-
+//logout
+let lgoutbtn = document.querySelector("#lgoutbtn");
+lgoutbtn?.addEventListener('click',()=>{
+   location.href = '/join/logout';
+});
