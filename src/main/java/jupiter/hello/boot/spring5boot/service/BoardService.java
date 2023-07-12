@@ -7,7 +7,7 @@ import java.util.List;
 public interface BoardService {
     boolean saveBoard(Board b);
 
-    List<Board> readBoard();
+    List<Board> readBoard(Integer cpg);
 
     Board readOneBoard(String bno);
 }

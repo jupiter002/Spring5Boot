@@ -3,7 +3,6 @@ package jupiter.hello.boot.spring5boot.service;
 import jupiter.hello.boot.spring5boot.dao.BoardDAO;
 import jupiter.hello.boot.spring5boot.model.Board;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,8 +17,9 @@ public class BoardServiceImpl implements BoardService {
     }
 
     @Override
-    public List<Board> readBoard() {
-        return bdao.selectBoard();
+    public List<Board> readBoard(Integer cpg) {
+        int stnum = (cpg - 1) * 25;
+        return bdao.selectBoard(stnum);
     }
 
     @Override
