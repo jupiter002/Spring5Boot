@@ -26,21 +26,12 @@ public class BoardControllerUnitTest {
     @Transactional
     void readBoard() throws Exception {
 
-        mvc.perform(get("/board/list"))
-
+        mvc.perform(get("/board/list")
+                .param("cpg","1"))
                 .andExpect(status().isOk())
                 .andDo(print());
     }
-    @Test
-    @DisplayName("MemberController login Test")
-    void login() throws Exception {
 
-        mvc.perform(post("/join/login")
-                        .param("userid","abc123")
-                        .param("passwd","987xyz"))
-                .andExpect(status().is3xxRedirection())
-                .andDo(print());
 
-    }
 
 }
