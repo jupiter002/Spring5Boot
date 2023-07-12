@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import org.mybatis.spring.boot.test.autoconfigure.MybatisTest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -22,13 +23,17 @@ public class BoardMapperUnitTest {
 
     @Test
     @DisplayName("BoardMapper insert Test")
+    @Transactional
     void insertBoard(){
-        Board b = new Board(null,"","abc123",
-                null,"","","","");
+        Board b = new Board();
+        b.setUserid("abc123");
+        b.setTitle("테스트");
+        b.setContents("테스트");
+        b.setIpaddr("127.0.0.1");
 
         boolean result = boardMapper.insertBoard(b);
         System.out.println(result);
-        assertNotNull(result);
+        assertEquals(result,true);
     }
     @Test
     @DisplayName("BoardMapper select Test")
