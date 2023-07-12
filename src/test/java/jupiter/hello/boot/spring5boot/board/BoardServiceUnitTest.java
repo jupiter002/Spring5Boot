@@ -36,7 +36,8 @@ public class BoardServiceUnitTest {
     @Test
     @DisplayName("BoardService read Test")
     void readMember(){
-        List<Board> results = bsrv.readBoard();
+        int cpg = 1;
+        List<Board> results = bsrv.readBoard(cpg);
         assertNotNull(results);
     }
     @Test
