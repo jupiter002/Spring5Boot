@@ -23,7 +23,6 @@ public class BoardControllerUnitTest {
 
     @Test
     @DisplayName("BoardController read Test")
-    @Transactional
     void readBoard() throws Exception {
 
         mvc.perform(get("/board/list")
@@ -31,7 +30,14 @@ public class BoardControllerUnitTest {
                 .andExpect(status().isOk())
                 .andDo(print());
     }
+    @Test
+    @DisplayName("BoardController view Test")
+    void view() throws Exception {
 
+        mvc.perform(get("/board/view/1178"))
+                .andExpect(status().isOk())
+                .andDo(print());
+    }
 
 
 }
