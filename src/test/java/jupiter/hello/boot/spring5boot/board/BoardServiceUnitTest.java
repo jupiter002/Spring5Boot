@@ -25,13 +25,16 @@ public class BoardServiceUnitTest {
     @Test
     @DisplayName("BoardService save Test")
     void saveBoard(){
-        Board b = new Board(null,"","abc123"
-                ,null,"","","","");
+        Board b = new Board();
+        b.setUserid("abc123");
+        b.setTitle("테스트");
+        b.setContents("테스트");
+        b.setIpaddr("127.0.0.1");
 
         boolean result = bsrv.saveBoard(b);
-        System.out.println(result);
-        assertEquals(result, true);
+        assertEquals(result,true);
     }
+
 
     @Test
     @DisplayName("BoardService read Test")
