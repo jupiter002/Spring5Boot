@@ -58,13 +58,16 @@
                             <th>11</th>
                             <th>12123</th>
                         </tr>
-                        <td>1</td>
-                        <td>시간은 금</td>
-                        <td>운영자</td>
-                        <td>2023-05-01</td>
-                        <td>111</td>
-                        <td>123</td>
+
+                        <tr th:each="bd : ${bds}">
+                            <td th:text="${bd.bno}">1</td>
+                            <td th:text="${bd.title}">시간은 금</td>
+                            <td th:text="${bd.userid}">운영자</td>
+                            <td th:text="${#strings.substring(bd.regdate,0,10)}">2023-05-01</td>
+                            <td th:text="${bd.thumbs}">111</td>
+                            <td th:text="${bd.views}">123</td>
                         </tr>
+
                     </tbody>
                 </table>
             </div>
