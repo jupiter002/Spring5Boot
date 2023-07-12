@@ -38,6 +38,19 @@ public class BoardControllerUnitTest {
                 .andExpect(status().isOk())
                 .andDo(print());
     }
+    @Test
+    @DisplayName("BoardController write Test")
+    @Transactional
+    void write() throws Exception {
+
+        mvc.perform(post("/board/write")
+                        .param("userid","abc123")
+                        .param("title","제목")
+                        .param("contents","가나다라마바사아자카타파하")
+                        .param("ipaddr","192.168.0.202"))
+                .andExpect(status().is3xxRedirection())
+                .andDo(print());
+    }
 
 
 }
