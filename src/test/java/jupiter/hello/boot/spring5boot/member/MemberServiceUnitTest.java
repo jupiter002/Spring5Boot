@@ -1,51 +1,52 @@
-package jupiter.hello.boot.spring5boot;
+package jupiter.hello.boot.spring5boot.member;
 
+import jupiter.hello.boot.spring5boot.dao.MemberDAOImpl;
 import jupiter.hello.boot.spring5boot.model.Member;
-import jupiter.hello.boot.spring5boot.mybatis.MemberMapper;
+import jupiter.hello.boot.spring5boot.service.MemberService;
+import jupiter.hello.boot.spring5boot.service.MemberServiceImpl;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mybatis.spring.boot.test.autoconfigure.MybatisTest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
+import org.springframework.context.annotation.Import;
 
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-
 @MybatisTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
-public class MemberMapperUnitTest {
-    @Autowired private MemberMapper memberMapper;
-
+@Import({MemberServiceImpl.class, MemberDAOImpl.class})
+public class MemberServiceUnitTest {
+    @Autowired private MemberService msrv;
 
     @Test
-    @DisplayName("MemberMapper insert Test")
-    void insertMember(){
+    @DisplayName("MemberService save Test")
+    void saveMember(){
         Member m = new Member(null,"","","","",""
                 ,"","","","",null);
 
-        int result = memberMapper.insertMember(m);
+        boolean result = msrv.saveMember(m);
         System.out.println(result);
-        assertEquals(result, 1);
+        assertEquals(result, true);
     }
-    @Test
-    @DisplayName("MemberMapper select Test")
-    void selectMember(){
-        List<Member> results = memberMapper.selectMember();
 
+    @Test
+    @DisplayName("MemberService read Test")
+    void readMember(){
+        List<Member> results = msrv.readMember();
         System.out.println(results);
         assertNotNull(results);
     }
     @Test
-    @DisplayName("MemberMapper selectOneMember Test")
-    void selectOneMember(){
+    @DisplayName("MemberService readOneMember Test")
+    void readOneMember(){
         Member m = new Member();
         m.setUserid("abc123");
         m.setPasswd("987xyz");
-        Member result = memberMapper.selectOneMember(m);
-
+        Member result = msrv.readOneMember(m);
         System.out.println(result);
         assertNotNull(result);
     }
