@@ -42,11 +42,11 @@ public class BoardMapperUnitTest {
     }
 
     @Test
-    @DisplayName("BoardMapper selectOneMember Test")
-    void selectOneMember(){
-        Board result = boardMapper.selectOneBoard("2872");
+    @DisplayName("BoardMapper selectOne Test")
+    void selectOneBoard(){
+        String bno = "600";
+        Board result = boardMapper.selectOneBoard(bno);
 
-        System.out.println(result);
         assertNotNull(result);
     }
 
