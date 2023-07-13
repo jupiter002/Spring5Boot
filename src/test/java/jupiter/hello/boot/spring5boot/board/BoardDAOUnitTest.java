@@ -55,4 +55,11 @@ public class BoardDAOUnitTest {
         Board result = bdao.selectOneBoard(bno);
         assertNotNull(result);
     }
+    @Test
+    @DisplayName("BoardDAO count Test")
+    void selectCountBoard(){
+        int result = bdao.selectCountBoard();
+        System.out.println(result);
+        assertEquals(result,59);
+    }
 }
