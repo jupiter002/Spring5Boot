@@ -1,3 +1,9 @@
+//reg
+let regbtn = document.querySelector("regbtn");
+    regbtn?.addEventListener('click',()=>{
+       location.href = "/join/agree";
+    });
+
 // agree
 let agree1 = document.querySelector("#agree1");
 let agree2 = document.querySelector("#agree2");
@@ -127,7 +133,6 @@ dong?.addEventListener('keydown',(e)=>{
 
 });
 // 비밀번호 확인
-let frm1 = document.forms.joinfrm;
 let pwd = document.querySelector('#pwd');
 let repwd = document.querySelector('#repasswd');
 let pwdmsg = document.querySelector('#pwdmsg');
@@ -245,6 +250,24 @@ rmvbdbtn?.addEventListener('click',()=>{
 });
 lstbdbtn?.addEventListener('click',()=>{
     location.href = "/board/list/1";
+});
+
+
+//board write
+let wrtbdbtn = document.querySelector("#wrtbdbtn");
+
+wrtbdbtn?.addEventListener('click',()=>{
+   let frm = document.forms.bdfrm;
+   if(frm.title.value===''){
+       alert('제목을 입력하세요');
+   }else if(frm.contents.value==='') {
+       alert('글을 입력하세요');
+   }else if(grecaptcha.getResponse()===''){
+       alert('자동쓰기방지를 체크해주세요');
+   }else{
+       frm.method = 'post';
+       frm.submit();
+   }
 });
 
 
