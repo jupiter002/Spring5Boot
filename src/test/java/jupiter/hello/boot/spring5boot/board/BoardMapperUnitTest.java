@@ -20,7 +20,6 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 public class BoardMapperUnitTest {
     @Autowired private BoardMapper boardMapper;
 
-
     @Test
     @DisplayName("BoardMapper insert Test")
     @Transactional
@@ -45,7 +44,6 @@ public class BoardMapperUnitTest {
         System.out.println(results);
         assertNotNull(results);
     }
-
     @Test
     @DisplayName("BoardMapper selectOne Test")
     void selectOneBoard(){
@@ -54,5 +52,14 @@ public class BoardMapperUnitTest {
 
         assertNotNull(result);
     }
+    @Test
+    @DisplayName("BoardMapper update Test")
+    @Transactional
+    void updateOneBoard(){
+        String bno = "1478";
 
+        int result = boardMapper.updateViewBoard(bno);
+        System.out.println(result);
+        assertEquals(result,1);
+    }
 }
