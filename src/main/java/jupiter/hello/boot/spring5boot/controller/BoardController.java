@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import javax.servlet.http.HttpSession;
 
 @RequestMapping("/board")
 @Controller
@@ -26,6 +25,7 @@ public class BoardController {
         logger.info("board/list 호출");
         m.addAttribute("bds",bsrv.readBoard(cpg));
         m.addAttribute("cpg",cpg);
+        m.addAttribute("cntpg",bsrv.countBoard());
         return "board/list";
     }
     @GetMapping("/view/{bno}")
