@@ -10,8 +10,7 @@
     </insert>
     <select id="selectBoard" resultType="Board">
         select bno, title, userid, regdate, thumbs, views from board2
-            order by bno desc
-            limit #{stnum}, 25
+            order by bno desc limit #{stnum}, 25
     </select>
     <select id="selectOneBoard" resultType="Board">
         select * from board2 where bno = #{bno}
@@ -19,4 +18,7 @@
     <update id="updateViewBoard">
         update board2 set views = views + 1 where bno = #{bno}
     </update>
+    <select id="selectCountBoard">
+        select ceil(count(userid)/25) cntpg from board2;
+    </select>
 </mapper>
