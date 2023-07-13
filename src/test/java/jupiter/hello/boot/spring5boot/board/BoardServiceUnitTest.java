@@ -65,7 +65,7 @@ public class BoardServiceUnitTest {
     void FindBoard(){
         String ftype = "contents";
         String fkey = "가나다";
-        int cpg = 0;
+        int cpg = 1;
 
         List<Board>results = bsrv.readFindBoard(cpg,ftype,fkey);
         assertNotNull(results);
