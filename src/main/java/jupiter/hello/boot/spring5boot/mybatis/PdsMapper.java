@@ -3,13 +3,12 @@ package jupiter.hello.boot.spring5boot.mybatis;
 import jupiter.hello.boot.spring5boot.model.Pds;
 import org.apache.ibatis.annotations.Mapper;
 
-import java.util.List;
-import java.util.Map;
-
 @Mapper
 public interface PdsMapper {
     int insertPds(Pds b);
     int lastPdsPno();
+    int insertPdsAttach();
+
     /*List<Pds> selectPds(int stnum);
     Pds selectOnePds(String bno);
     int updateViewPds(String bno);

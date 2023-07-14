@@ -13,8 +13,13 @@
         from information_schema.TABLES
         where TABLE_NAME = 'pds'-->
 
-        select last_insert_id() from pds
+        select last_insert_id() from pds limit 1,1
     </select>
+    <insert id="insertPdsAttach" parameterType="PdsAttach">
+        insert into pdsattach
+        (pno, fname, ftype, fsize)
+        values(#{pno},#{fname},#{ftype},#{fsize}) <!--동적바인딩-->
+    </insert>
     <!--<select id="selectPds" resultType="Pds">
         select bno, title, userid, regdate, thumbs, views from Pds2
             order by bno desc limit #{stnum}, 25
