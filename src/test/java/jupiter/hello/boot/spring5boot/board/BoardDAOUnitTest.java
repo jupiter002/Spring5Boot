@@ -74,4 +74,13 @@ public class BoardDAOUnitTest {
         List<Board>results = bdao.selectFindBoard(params);
         assertNotNull(results);
     }
+    @Test
+    @DisplayName("BoardDAO countFindBoard Test")
+    void countFindBoard(){
+        Map<String, Object> params = new HashMap<>();
+        params.put("findtype","titcont");
+        params.put("findkey","취업자");
+        int result = bdao.countFindBoard(params);
+        assertNotNull(result);
+    }
 }
