@@ -34,10 +34,18 @@
             <table>
                 <tr><th colspan="2" th:text="${p.title}" class="vtit">제목</th></tr>
                 <tr class="vinfo"><td th:text="${p.userid}">작성자</td>
-                    <td th:text="|${bd.regdate} / ${p.thumbs} / ${p.views}|" class="text-end">작성일/추천수/조회수</td></tr>
+                    <td th:text="|${p.regdate} / ${p.thumbs} / ${p.views}|" class="text-end">작성일/추천수/조회수</td></tr>
                 <tr><td colspan="2" th:text="${p.contents}" class="vcont">본문</td></tr>
             </table>
-        </div><!-- 본문글 -->
+            <tr>
+                <td class="vinfo" colspan="2">
+                    <a href="|/pds/down/${p.pno}|"
+                    th:text="${p.pa.fname}">파일명</a>
+                    <span th:text="|${p.pa.fsize} KB/ ${p.pa.fdown}회 다운로드|"></span>
+                </td>
+            </tr>
+        </div> <!-- 본문글 -->
+
 
         <div class="row mt-3 mb-5">
             <div class="row offset-1 col-5">
