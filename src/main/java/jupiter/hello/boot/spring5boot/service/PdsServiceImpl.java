@@ -8,6 +8,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.List;
+
 @Service("psrv")
 @RequiredArgsConstructor
 public class PdsServiceImpl implements PdsService {
@@ -16,7 +18,8 @@ public class PdsServiceImpl implements PdsService {
     final PdsUtils pdsUtils;
     @Override
     public int newPds(Pds p) {
-        return pdao.insertPds(p);
+        int cnt = pdao.insertPds(p);
+        return cnt;
     }
 
     @Override
@@ -26,7 +29,22 @@ public class PdsServiceImpl implements PdsService {
         pa.setPno(pno + "");
         //첨부파일 정보를 DB에 저장
         int pacnt = pdao.insertPdsAttach(pa);
-        return (pacnt > 0 )? true : false;
+        return (pacnt > 0 ) ? true : false;
+    }
+
+    @Override
+    public List<Pds> readPds(Integer cpg) {
+        return pdao.selectPds(cpg);
+    }
+
+    @Override
+    public int countPds() {
+        return pdao.selectCountPds();
+    }
+
+    @Override
+    public Pds readOnePds(String pno) {
+        return pdao.selectOnePds(pno);
     }
 
 
