@@ -47,7 +47,7 @@ public class PdsUtils {
 
     private String makeUUID() {
         String uuid = LocalDate.now() + "" + LocalTime.now();
-            uuid.replace("-","")
+            uuid = uuid.replace("-","")
                 .replace(":","")
                 .replace(".","");
         return uuid;

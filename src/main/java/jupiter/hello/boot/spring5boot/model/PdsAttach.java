@@ -7,7 +7,7 @@ import lombok.*;
 @Setter
 @Getter
 @ToString
-public class PdsAttatch {
+public class PdsAttach {
     private String pano;
     private String pno;
     private String fname;
