@@ -123,7 +123,7 @@ create table pds(
 create table pdsattach(
     pano        int             auto_increment,
     pno         int             not null,       -- 게시글 번호
-    fname       varchar(200)     not null,      -- uuid 포함
+    fname       varchar(200)    not null,       -- uuid 포함
     ftype       varchar(3)      not null,
     fsize       float           not null,
     fdown       int             default 0,
@@ -137,3 +137,18 @@ alter table pds
 alter table pdsattach
     add constraint fkpno
         foreign key (pno) references pds(pno);
+
+select last_insert_id() from pds limit 1,1;
+
+-- join
+select * from pds p join pdsattach pa
+                         using(pno) where p.pno = '34';
+
+-- view(가상테이블)
+create view ppa
+as
+select * from pds p join pdsattach pa
+                         using(pno);
+
+select * from ppa where pno = '34';
+
