@@ -1,8 +1,8 @@
-project.js//reg
+//reg
 let regbtn = document.querySelector("regbtn");
-    regbtn?.addEventListener('click',()=>{
-       location.href = "/join/agree";
-    });
+regbtn?.addEventListener('click',()=>{
+   location.href = "/join/agree";
+});
 
 // agree
 let agree1 = document.querySelector("#agree1");

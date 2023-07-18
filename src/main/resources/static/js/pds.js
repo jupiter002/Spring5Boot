@@ -35,7 +35,7 @@ wrtpdsbtn?.addEventListener('click',()=>{
        alert('자동쓰기방지를 체크해주세요');
    }else{
        frm.method = 'post';
-       frm.enctype = 'multipart/form-data'         // 첨부기능을 위해 추가
+       frm.enctype = 'multipart/form-data';         // 첨부기능을 위해 추가
        frm.submit();
    }
 });
