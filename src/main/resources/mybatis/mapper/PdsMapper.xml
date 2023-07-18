@@ -50,6 +50,9 @@
     <select id="selectCountPds">
         select ceil(count(pno)/25) cntpg from pds;
     </select>
+    <select id="selectOnePdsAttach" resultType="PdsAttach">
+        select * from pdsattach where pno = #{pno}
+    </select>
 
     <!--<update id="updateViewPds">
         update Pds2 set views = views + 1 where bno = #{bno}

@@ -14,6 +14,7 @@ public interface PdsMapper {
     List<Pds> selectPds(int stnum);
     Pds selectOnePds(String pno);
     int selectCountPds();
+    PdsAttach selectOnePdsAttach(String pno);
 
 
 
