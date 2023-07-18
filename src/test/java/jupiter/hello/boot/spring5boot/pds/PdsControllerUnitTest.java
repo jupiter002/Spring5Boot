@@ -13,6 +13,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import java.io.FileInputStream;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -40,6 +41,12 @@ public class PdsControllerUnitTest {
                 ).andExpect(status().is3xxRedirection())
                 .andDo(print());
     }
-
+    @Test
+    @DisplayName("PdsController download Test")
+    void download() throws Exception {
+        mvc.perform(get("/pds/down/38"))
+                .andExpect(status().is(200))
+                .andDo(print());
+    }
 
 }
