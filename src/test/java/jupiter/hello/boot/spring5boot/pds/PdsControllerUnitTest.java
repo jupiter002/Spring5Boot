@@ -24,7 +24,7 @@ public class PdsControllerUnitTest {
     @Autowired private MockMvc mvc;
 
     @Test
-    @DisplayName("BoardController upload Test")
+    @DisplayName("PdsController upload Test")
     void writeok() throws Exception {
         String fpath= "C:/Java/clip.png";
         FileInputStream fis = new FileInputStream(fpath);
@@ -45,6 +45,13 @@ public class PdsControllerUnitTest {
     @DisplayName("PdsController download Test")
     void download() throws Exception {
         mvc.perform(get("/pds/down/38"))
+                .andExpect(status().is(200))
+                .andDo(print());
+    }
+    @Test
+    @DisplayName("PdsController view Test")
+    void view() throws Exception {
+        mvc.perform(get("/pds/view/34"))
                 .andExpect(status().is(200))
                 .andDo(print());
     }
