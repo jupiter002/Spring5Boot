@@ -17,12 +17,6 @@ public interface PdsMapper {
     int selectCountPds();
     PdsAttach selectOnePdsAttach(String pno);
     int insertPdsComment(PdsComment pc);
-
     List<PdsComment> selectPdsComment(String pno);
-
-
-
-
-
-
+    int insertPdsReply(PdsComment pc);
 }
